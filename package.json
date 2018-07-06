@@ -30,6 +30,10 @@
     "jest.js"
   ],
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helpscout/zero.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "np": "3.0.4"
