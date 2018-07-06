@@ -6,6 +6,7 @@ const baseConfig = Object.assign({}, kcdLint, reactLint)
 const rulesConfig = {
   'import/prefer-default-export': 'off',
   'import/no-unassigned-import': 'off',
+  'import/extensions': 'off',
   'no-console': 'off',
   'no-nested-ternary': 'off',
   complexity: ['error', 10],
