@@ -8,12 +8,12 @@
     "npm": ">= 3"
   },
   "scripts": {
-    "add-contributor": "kcd-scripts contributors add",
-    "build": "kcd-scripts build",
-    "lint": "kcd-scripts lint",
-    "format": "kcd-scripts format",
-    "validate": "kcd-scripts validate",
-    "precommit": "kcd-scripts precommit",
+    "add-contributor": "node src contributors add",
+    "build": "node src build",
+    "lint": "node src lint",
+    "format": "node src format",
+    "validate": "node src validate",
+    "precommit": "node src precommit",
     "postversion": "npm publish",
     "release": "np --no-yarn --no-publish",
     "version": "npm run build"
@@ -21,19 +21,27 @@
   "bin": {
     "zero": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "babel.js",
+    "eslint.js",
+    "prettier.js",
+    "jest.js"
+  ],
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
   "license": "MIT",
   "devDependencies": {
-    "kcd-scripts": "0.39.2",
     "np": "3.0.4"
   },
   "dependencies": {
     "babel-eslint": "7.2.3",
     "babel-plugin-inline-svg": "1.0.0",
     "babel-plugin-module-resolver": "2.7.1",
+    "babel-plugin-transform-flow-strip-types": "6.22.0",
     "eslint-config-react-app": "2.1.0",
     "eslint-plugin-flowtype": "2.49.3",
     "eslint-plugin-jsx-a11y": "5.1.1",
-    "flow-bin": "0.75.0"
+    "flow-bin": "0.75.0",
+    "kcd-scripts": "0.39.2"
   }
 }

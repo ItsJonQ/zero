@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('kcd-scripts')
+require('kcd-scripts/dist/index')
