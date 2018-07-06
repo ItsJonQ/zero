@@ -3,6 +3,8 @@
   "rules": {
     "import/prefer-default-export": "off",
     "import/no-unassigned-import": "off",
+    "no-console": "off",
+    "no-nested-ternary": "off",
     "complexity": [
       "error",
       10

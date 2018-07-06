@@ -1,10 +1,16 @@
-const kcdEsLint = require('kcd-scripts/eslint')
+const reactLint = require('eslint-config-react-app')
+const kcdLint = require('kcd-scripts/eslint')
 
-module.exports = {
-  extends: kcdEsLint.extends,
-  rules: {
-    'import/prefer-default-export': 'off',
-    'import/no-unassigned-import': 'off',
-    complexity: ['error', 10],
-  },
+const baseConfig = Object.assign({}, kcdLint, reactLint)
+
+const rulesConfig = {
+  'import/prefer-default-export': 'off',
+  'import/no-unassigned-import': 'off',
+  'no-console': 'off',
+  'no-nested-ternary': 'off',
+  complexity: ['error', 10],
 }
+
+module.exports = Object.assign(baseConfig, {
+  rules: Object.assign(rulesConfig, baseConfig.rules),
+})
