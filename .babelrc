@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "kcd-scripts/babel",
+    "flow"
+  ],
+  "plugins": [
+    "transform-flow-strip-types",
+    "inline-svg"
+  ]
+}

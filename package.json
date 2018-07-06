@@ -1,0 +1,34 @@
+{
+  "name": "@helpscout/zero",
+  "version": "0.0.0",
+  "description": "Zero config scripts for Help Scout",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 6",
+    "npm": ">= 3"
+  },
+  "scripts": {
+    "add-contributor": "kcd-scripts contributors add",
+    "build": "kcd-scripts build",
+    "lint": "kcd-scripts lint",
+    "format": "kcd-scripts format",
+    "validate": "kcd-scripts validate",
+    "precommit": "kcd-scripts precommit",
+    "postversion": "npm publish",
+    "release": "np --no-yarn --no-publish",
+    "version": "npm run build"
+  },
+  "bin": {
+    "zero": "dist/index.js"
+  },
+  "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "kcd-scripts": "0.39.2",
+    "np": "3.0.4"
+  },
+  "dependencies": {
+    "babel-plugin-inline-svg": "1.0.0",
+    "eslint-plugin-flowtype": "2.49.3"
+  }
+}
