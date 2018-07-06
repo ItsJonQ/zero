@@ -44,7 +44,7 @@ Zero comes with a handful of scripts that you can add to your own `package.json`
 Create a `babel` or `.babelrc` file with:
 
 ```
-{"presets": ["zero/babel"]}
+{"presets": ["@helpscout/zero/babel"]}
 ```
 
 ##### ESlint
@@ -52,7 +52,7 @@ Create a `babel` or `.babelrc` file with:
 Create an `.eslintrc` file with:
 
 ```
-{"extends": "./node_modules/zero/eslint.js"}
+{"extends": "./node_modules/@helpscout/zero/eslint.js"}
 ```
 
 > Note: for now, you'll have to include an `.eslintignore` in your project until
@@ -63,7 +63,7 @@ Create an `.eslintrc` file with:
 Create an `jest.config.js` file with:
 
 ```javascript
-const jestConfig = require('zero/jest')
+const jestConfig = require('@helpscout/zero/jest')
 
 module.exports = Object.assign(jestConfig, {
   // your overrides here
