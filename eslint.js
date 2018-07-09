@@ -18,4 +18,4 @@ const reactLint = require('eslint-config-react-app')
 // })
 
 // Going with out-of-the-box react-app Linting config for now.
-export default reactLint
+module.exports = reactLint
