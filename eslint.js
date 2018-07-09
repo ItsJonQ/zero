@@ -17,5 +17,13 @@ const reactLint = require('eslint-config-react-app')
 //   rules: Object.assign(rulesConfig, baseConfig.rules),
 // })
 
-// Going with out-of-the-box react-app Linting config for now.
-module.exports = reactLint
+// Going with out-of-the-box react-app Linting config for now + React v15.
+module.exports = Object.assign({}, reactLint, {
+  settings: {
+    react: {
+      createClass: 'createReactClass',
+      pragma: 'React',
+      version: '15.6.1',
+    },
+  },
+})
