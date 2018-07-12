@@ -50,6 +50,7 @@
     "eslint-config-react-app": "2.1.0",
     "eslint-plugin-flowtype": "2.49.3",
     "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-scope": "3.7.1",
     "flow-bin": "0.75.0",
     "jest": "22.4.3",
     "jest-cli": "22.4.3",
