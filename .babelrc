@@ -1,7 +1,7 @@
 {
   "presets": [
     "kcd-scripts/babel",
-    "flow"
+    "react-app"
   ],
   "plugins": [
     "transform-flow-strip-types",
