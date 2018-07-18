@@ -1,4 +1,4 @@
-# 📦 Zero
+# 📦 Zero [![Build Status](https://travis-ci.org/helpscout/zero.svg?branch=master)](https://travis-ci.org/helpscout/zero) [![npm version](https://badge.fury.io/js/%40helpscout%2Fzero.svg)](https://badge.fury.io/js/%40helpscout%2Fzero)
 
 > Help Scout's zero config scripts
 
