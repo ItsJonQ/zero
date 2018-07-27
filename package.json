@@ -18,7 +18,7 @@
     "postversion": "npm publish",
     "release": "np --no-yarn --no-publish",
     "version": "npm run build",
-    "test": "npm run build"
+    "test": "CI=true node src test && npm run build"
   },
   "bin": {
     "zero": "dist/index.js"
