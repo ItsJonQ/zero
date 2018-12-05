@@ -9,6 +9,7 @@
     "npm": ">= 3"
   },
   "scripts": {
+    "prestart": "node src prestart",
     "add-contributor": "node src contributors add",
     "build": "node src build",
     "lint": "node src lint",
@@ -40,6 +41,7 @@
     "np": "3.0.4"
   },
   "dependencies": {
+    "@helpscout/prestart": "0.0.7",
     "babel-eslint": "8.2.3",
     "babel-plugin-inline-svg": "1.0.0",
     "babel-plugin-module-resolver": "2.7.1",

@@ -10,4 +10,9 @@ if (command && command.toLowerCase() === 'build') {
   }
 }
 
-require('kcd-scripts/dist/index')
+if (command && command.toLowerCase() === 'prestart') {
+  const prestart = require('@helpscout/prestart')
+  prestart.sync()
+} else {
+  require('kcd-scripts/dist/index')
+}
