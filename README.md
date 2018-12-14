@@ -32,6 +32,7 @@ Zero comes with a handful of scripts that you can add to your own `package.json`
 
 ```json
 "scripts": {
+  "prestart": "zero prestart",
   "build": "zero build",
   "lint": "zero lint",
   "format": "zero format",
