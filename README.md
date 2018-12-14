@@ -20,13 +20,13 @@ This is all thanks to [kcd-scripts](https://github.com/kentcdodds/kcd-scripts), 
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## 🔧 Installation
+## Installation
 
 ```
 npm install --save-dev @helpscout/zero
 ```
 
-## 🕹 Usage
+## Usage
 
 Zero comes with a handful of scripts that you can add to your own `package.json` scripts:
 
@@ -41,7 +41,7 @@ Zero comes with a handful of scripts that you can add to your own `package.json`
 }
 ```
 
-## 🙌 Extending
+## Extending
 
 ### Babel
 
@@ -51,11 +51,21 @@ Create a `babel` or `.babelrc` file with:
 {"presets": ["@helpscout/zero/babel"]}
 ```
 
+#### `babel-core@7`
+
 As of version `1.0.0`, Zero is now on `@babel` version 7. Your project may need to install `babel-core@7.0.0-bridge.0`. To do so, add that package to your `package.json`, or run:
 
 ```
 npm install --save-dev babel-core@7.0.0-bridge.0
 ```
+
+#### `@babel/runtime`
+
+Zero does **not** include `@babel/runtime`, as it is still being used to compile projects on Babel 6. If you need an ultra-modern Babel 7 ready tool, check out [kcd-scripts](https://github.com/kentcdodds/kcd-scripts).
+
+#### `babel-plugin-react-app`
+
+Zero no longer comes with `babel-plugin-react-app`. The reason is because this module uses `@babel/runtime` with the new Babel 7 set up. If your project requires `babel-plugin-react-app` (e.g. building [Docz](https://www.docz.site/)), you'll need to add it yourself as a `devDependencies`.
 
 ### ESlint
 
