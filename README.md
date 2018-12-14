@@ -11,9 +11,9 @@ This is all thanks to [kcd-scripts](https://github.com/kentcdodds/kcd-scripts), 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [🔧 Installation](#-installation)
-- [🕹 Usage](#%F0%9F%95%B9-usage)
-- [🙌 Extending](#-extending)
+- [Installation](#-installation)
+- [Usage](#%F0%9F%95%B9-usage)
+- [Extending](#-extending)
   - [Babel](#babel)
   - [ESlint](#eslint)
   - [Jest](#jest)
