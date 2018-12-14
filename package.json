@@ -1,6 +1,6 @@
 {
   "name": "@helpscout/zero",
-  "version": "1.0.2",
+  "version": "1.0.3-2",
   "public": true,
   "description": "Help Scout's zero config scripts",
   "main": "index.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "prestart": "node src prestart",
     "add-contributor": "node src contributors add",
-    "build": "node src build",
+    "build": "BABEL_ENV=production babel ./src --out-dir ./dist",
     "lint": "node src lint",
     "format": "node src format",
     "validate": "node src validate",
@@ -37,19 +37,18 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/runtime": "7.2.0",
     "np": "3.0.4"
   },
   "dependencies": {
     "@babel/core": "^7.2.0",
     "@babel/plugin-transform-flow-strip-types": "^7.0.0",
-    "@babel/runtime": "7.2.0",
     "@helpscout/prestart": "0.0.9",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "7.2.3",
     "babel-plugin-emotion": "^9",
     "babel-plugin-inline-svg": "1.0.0",
     "babel-plugin-module-resolver": "3.1.1",
-    "babel-preset-react-app": "6.1.0",
     "browserslist": "4.3.5",
     "eslint": "^5.9.0",
     "eslint-config-react-app": "3.0.5",
