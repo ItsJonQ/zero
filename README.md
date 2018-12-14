@@ -14,6 +14,9 @@ This is all thanks to [kcd-scripts](https://github.com/kentcdodds/kcd-scripts), 
 - [🔧 Installation](#-installation)
 - [🕹 Usage](#%F0%9F%95%B9-usage)
 - [🙌 Extending](#-extending)
+  - [Babel](#babel)
+  - [ESlint](#eslint)
+  - [Jest](#jest)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -33,13 +36,13 @@ Zero comes with a handful of scripts that you can add to your own `package.json`
   "lint": "zero lint",
   "format": "zero format",
   "validate": "zero validate",
-  "precommit": "zero precommit",
+  "precommit": "zero pre-commit",
 }
 ```
 
 ## 🙌 Extending
 
-##### Babel
+### Babel
 
 Create a `babel` or `.babelrc` file with:
 
@@ -47,7 +50,13 @@ Create a `babel` or `.babelrc` file with:
 {"presets": ["@helpscout/zero/babel"]}
 ```
 
-##### ESlint
+As of version `1.0.0`, Zero is now on `@babel` version 7. Your project may need to install `babel-core@7.0.0-bridge.0`. To do so, add that package to your `package.json`, or run:
+
+```
+npm install --save-dev babel-core@7.0.0-bridge.0
+```
+
+### ESlint
 
 Create an `.eslintrc` file with:
 
@@ -58,7 +67,7 @@ Create an `.eslintrc` file with:
 > Note: for now, you'll have to include an `.eslintignore` in your project until
 > [this eslint issue is resolved](https://github.com/eslint/eslint/issues/9227).
 
-##### Jest
+### Jest
 
 Create an `jest.config.js` file with:
 

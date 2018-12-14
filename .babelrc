@@ -1,10 +1,8 @@
 {
-  "presets": [
-    "kcd-scripts/babel",
-    "react-app"
-  ],
+  "presets": ["kcd-scripts/babel", "react-app"],
   "plugins": [
-    "transform-flow-strip-types",
-    "inline-svg"
+    "@babel/plugin-transform-flow-strip-types",
+    "inline-svg",
+    "emotion"
   ]
 }
