@@ -8,7 +8,7 @@ const isTest = (BABEL_ENV || NODE_ENV) === 'test'
 const isPreact = parseEnv('BUILD_PREACT', false)
 const isRollup = parseEnv('BUILD_ROLLUP', false)
 const isUMD = BUILD_FORMAT === 'umd'
-const isCJS = BUILD_FORMAT === 'cjs'
+// const isCJS = BUILD_FORMAT === 'cjs'
 const isWebpack = parseEnv('BUILD_WEBPACK', false)
 const treeshake = parseEnv('BUILD_TREESHAKE', isRollup || isWebpack)
 const alias = parseEnv('BUILD_ALIAS', isPreact ? { react: 'preact' } : null)
@@ -60,10 +60,10 @@ module.exports = () => ({
     ifAnyDep(['flow-bin'], [require.resolve('@babel/preset-flow')]),
   ].filter(Boolean),
   plugins: [
-    [
-      require.resolve('@babel/plugin-transform-runtime'),
-      { useESModules: treeshake && !isCJS },
-    ],
+    // [
+    //   require.resolve('@babel/plugin-transform-runtime'),
+    //   { useESModules: treeshake && !isCJS },
+    // ],
     require.resolve('babel-plugin-macros'),
     alias
       ? [
