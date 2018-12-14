@@ -16,7 +16,7 @@
     "format": "node src format",
     "validate": "node src validate",
     "precommit": "node src pre-commit",
-    "release": "np --no-yarn",
+    "release": "np --no-yarn --yolo",
     "version": "npm run build",
     "test": "CI=true npm run build && node src test"
   },
