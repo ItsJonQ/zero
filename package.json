@@ -1,6 +1,6 @@
 {
   "name": "@helpscout/zero",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "public": true,
   "description": "Help Scout's zero config scripts",
   "main": "index.js",
@@ -18,7 +18,7 @@
     "precommit": "node src pre-commit",
     "release": "np --no-yarn",
     "version": "npm run build",
-    "test": "CI=true node src test && npm run build"
+    "test": "CI=true npm run build && node src test"
   },
   "bin": {
     "zero": "dist/index.js"

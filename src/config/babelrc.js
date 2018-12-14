@@ -1,12 +1,7 @@
 const browserslist = require('browserslist')
 const semver = require('semver')
 
-const {
-  ifAnyDep,
-  parseEnv,
-  appDirectory,
-  pkg,
-} = require('kcd-scripts/dist/utils')
+const { ifAnyDep, parseEnv, appDirectory, pkg } = require('../utils')
 
 const { BABEL_ENV, NODE_ENV, BUILD_FORMAT } = process.env
 const isTest = (BABEL_ENV || NODE_ENV) === 'test'
