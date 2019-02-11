@@ -1,25 +1,18 @@
 #!/usr/bin/env node
-
-const args = process.argv.slice(2)
-const command = args[0]
-const cmd = command && command.toLowerCase()
-
-if (cmd && cmd === 'build') {
-  /* eslint dot-notation: 0 */
-  if (!process.env['BABEL_ENV']) {
-    process.env['BABEL_ENV'] = 'production'
-  }
+let shouldThrow
+try {
+  shouldThrow =
+    require(`${process.cwd()}/package.json`).name === '@helpscout/zero' &&
+    Number(process.version.slice(1).split('.')[0]) < 8
+} catch (error) {
+  // ignore
 }
 
-if (cmd && cmd === 'precommit') {
-  console.log()
-  console.log('This command has been changed to "pre-commit"!')
-  console.log()
+if (shouldThrow) {
+  throw new Error(
+    'You must use Node version 8 or greater to run the scripts within @helpscout/zero ' +
+      'because we dogfood the untranspiled version of the scripts.'
+  )
 }
 
-if (cmd && cmd === 'prestart') {
-  const prestart = require('@helpscout/prestart')
-  prestart.sync()
-} else {
-  require('kcd-scripts/dist/index')
-}
+require('./run-script')

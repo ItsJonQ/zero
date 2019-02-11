@@ -1,0 +1,1 @@
+require('np/source/cli')

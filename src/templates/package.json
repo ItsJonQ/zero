@@ -1,0 +1,29 @@
+{
+  "name": "<%= pkgName %>",
+  "version": "0.0.0",
+  "description": "Module generated with Zero",
+  "main": "src/index.js",
+  "private": false,
+  "scripts": {
+    "prestart": "zero prestart",
+    "build": "zero build",
+    "lint": "zero lint",
+    "test": "zero test",
+    "format": "zero format",
+    "validate": "zero validate",
+    "release": "zero release",
+    "precommit": "zero pre-commit"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@helpscout/zero": "<%= zeroVersion %>"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
