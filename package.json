@@ -1,6 +1,6 @@
 {
   "name": "@helpscout/zero",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "public": true,
   "description": "Help Scout's zero config scripts",
   "main": "src/index.js",
