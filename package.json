@@ -27,7 +27,7 @@
     }
   },
   "files": [
-    "dist",
+    "src",
     "babel.js",
     "eslint.js",
     "config.js",
