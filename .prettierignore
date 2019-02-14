@@ -3,3 +3,5 @@ package-lock.json
 node_modules
 dist
 coverage
+src/templates
+src/templates/.pretterrc.js

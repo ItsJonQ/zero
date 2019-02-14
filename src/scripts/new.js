@@ -80,6 +80,7 @@ exports.generateTemplateFiles = (dest, rawProps) => {
   const templateFiles = exports.getTemplateFiles()
   const props = exports.getTemplateProps(rawProps)
   const srcIndexDest = path.join(dest, 'src/index.js')
+  const srcPrettierDest = path.join(dest, 'src/.prettierrc.js')
 
   templateFiles.forEach(file => {
     const fileContent = fs.readFileSync(file, 'utf8')
@@ -91,9 +92,16 @@ exports.generateTemplateFiles = (dest, rawProps) => {
     console.log(`Generated ${templateDest}`)
   })
 
-  // Crate the src/index.js file
+  // Create the src/index.js file
   fs.writeFileSync(srcIndexDest, '// Happy Coding!')
   console.log(`Generated ${srcIndexDest}`)
+
+  // Create the src/.prettierrc.js file
+  fs.writeFileSync(
+    srcPrettierDest,
+    "module.exports = require('@helpscout/zero/prettier')"
+  )
+  console.log(`Generated ${srcPrettierDest}`)
 }
 
 exports.remapPromptsToAnswers = prompts => {
