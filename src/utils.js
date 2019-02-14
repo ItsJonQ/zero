@@ -13,10 +13,7 @@ const { pkg, path: pkgPath } = readPkgUp.sync({
 const appDirectory = path.dirname(pkgPath)
 
 function resolveKcdScripts() {
-  if (pkg.name === '@helpscout/zero') {
-    return require.resolve('./').replace(process.cwd(), '.')
-  }
-  return resolveBin('@helpscout/zero')
+  return require.resolve('./').replace(process.cwd(), '.')
 }
 
 // eslint-disable-next-line complexity
