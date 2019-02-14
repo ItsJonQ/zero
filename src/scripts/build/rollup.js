@@ -1,6 +1,6 @@
 const path = require('path')
 const spawn = require('cross-spawn')
-const glob = require('glob')
+const glob = require('fast-glob')
 const rimraf = require('rimraf')
 const yargsParser = require('yargs-parser')
 const {

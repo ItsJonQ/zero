@@ -2,7 +2,7 @@ const spawn = require('cross-spawn')
 const fs = require('fs')
 const path = require('path')
 const inquirer = require('inquirer')
-const glob = require('glob')
+const glob = require('fast-glob')
 const mkdirp = require('mkdirp')
 const template = require('lodash.template')
 const pkg = require('../../package.json')
@@ -58,7 +58,7 @@ exports.execNew = async () => {
 
 exports.getTemplateFiles = () => {
   const templateDir = here('../templates')
-  const templateFilePath = path.join(templateDir, '/**/*')
+  const templateFilePath = path.join(templateDir, '/**/(*|.*)')
   const templateFiles = glob.sync(templateFilePath)
 
   return templateFiles

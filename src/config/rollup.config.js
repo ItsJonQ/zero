@@ -1,5 +1,5 @@
 const path = require('path')
-const glob = require('glob')
+const glob = require('fast-glob')
 const camelcase = require('lodash.camelcase')
 const rollupBabel = require('rollup-plugin-babel')
 const commonjs = require('rollup-plugin-commonjs')
