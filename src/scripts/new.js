@@ -80,7 +80,7 @@ exports.generateTemplateFiles = (dest, rawProps) => {
   const templateFiles = exports.getTemplateFiles()
   const props = exports.getTemplateProps(rawProps)
   const srcIndexDest = path.join(dest, 'src/index.js')
-  const srcPrettierDest = path.join(dest, 'src/.prettierrc.js')
+  const srcPrettierDest = path.join(dest, '.prettierrc.js')
 
   templateFiles.forEach(file => {
     const fileContent = fs.readFileSync(file, 'utf8')
