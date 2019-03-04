@@ -2,12 +2,42 @@
 
 [![Build Status](https://travis-ci.org/helpscout/zero.svg?branch=master)](https://travis-ci.org/helpscout/zero)
 [![npm version](https://badge.fury.io/js/%40helpscout%2Fzero.svg)](https://badge.fury.io/js/%40helpscout%2Fzero)
+![node](https://img.shields.io/badge/node-8.11.3-blue.svg)
+![npm](https://img.shields.io/badge/npm-6.4.1-blue.svg)
 
 > Help Scout's zero config scripts
 
-Zero comes with Babel, Rollup, ESLint, Prettier, and Jest - All pre-configured to let you build stuff without fiddling with tooling.
+Zero is a ["zero config"](https://www.google.com/search?ei=eGJ7XPqGG5K_jgS2wYKoCA&q=javascript+zero+config&oq=javascript+zero+config&gs_l=psy-ab.3..0i22i30l2.2204.6555..6634...4.0..0.88.1939.29......0....1..gws-wiz.......0i71j0i131j0j0i67.eDv8lllu1MY) tool designed to make it easy to create, develop, test, build, and publish libraries.
 
-This is all thanks to [kcd-scripts](https://github.com/kentcdodds/kcd-scripts), which powers Zero under the hood.
+It comes with a bunch of modern front-end tools, like Babel, Rollup, ESLint, Prettier, and Jest - All pre-configured to let you build stuff without fiddling with configuration files, scripts and commands.
+
+```
+📦  Zero
+
+zero <command>
+
+Example:
+  zero build
+
+Options:
+  -V, --version     output the version number
+  -h, --help        output usage information
+
+Commands:
+  build [options]   Builds project with Babel, Rollup, or TypeScript
+  bundle [options]  Bundles project into single files with Rollup
+  contributors      Generates markdown file with all contributors
+  format [options]  Formats files with Prettier
+  link [options]    Lints files with ESLint
+  new               Generate a new module
+  pre-commit        Lints files before staging for commit
+  prestart          Automatically install dependencies before starting
+  release           Publish to npm
+  setup [options]   Sets up tooling in project
+  test [options]    Run test with Jest
+  typecheck         Check types with TypeScript
+  validate          Validates project with lint, tests, and build
+```
 
 ## Table of Contents
 
@@ -21,32 +51,23 @@ This is all thanks to [kcd-scripts](https://github.com/kentcdodds/kcd-scripts), 
   - [Babel](#babel)
   - [ESlint](#eslint)
   - [Jest](#jest)
+  - [Prettier](#prettier)
+- [Thanks](#thanks)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
 
+Add Zero to your project with this command:
+
 ```
 npm install --save-dev @helpscout/zero
 ```
 
+Or globally with:
+
 ```
-📦  Zero
-
-Usage: zero <command> [--flags]
-
-Commands:
-🛠  build           Builds project with Babel (7)
-📦  bundle          Bundles project into single files with Rollup
-🤗  contributors    Generates markdown file with all contributors
-💅  format          Formats files with Prettier
-🔍  lint            Lints files with ESLint
-✨  new             Generate a new module
-☝️  pre-commit      Lints files before staging for commit
-🔑  prestart        Automatically install dependencies before starting
-🚢  release         Publish to npm
-🤞  test            Run tests with Jest
-💪  validate        Validates project with lint, tests, and build
+npm install -g @helpscout/zero
 ```
 
 ## Usage
@@ -68,10 +89,10 @@ Zero comes with a handful of scripts that you can add to your own `package.json`
 
 ### CLI
 
-To use Zero as a CLI, install it globally with this command:
+To use Zero as a CLI, install it globally, then run this command:
 
 ```
-npm install -g @helpscout/zero
+zero
 ```
 
 Alternatively, you can run it with [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
@@ -104,7 +125,7 @@ npm install --save-dev babel-core@7.0.0-bridge.0
 
 #### `@babel/runtime`
 
-Zero does **not** include `@babel/runtime`, as it is still being used to compile projects on Babel 6. If you need an ultra-modern Babel 7 ready tool, check out [kcd-scripts](https://github.com/kentcdodds/kcd-scripts).
+Zero **does not use** `@babel/runtime`, as it is still being used to compile projects on Babel 6. If you need an ultra-modern Babel 7 ready tool, check out [kcd-scripts](https://github.com/kentcdodds/kcd-scripts).
 
 #### `babel-plugin-react-app`
 
@@ -123,17 +144,24 @@ Create an `.eslintrc` file with:
 
 ### Jest
 
-Create an `jest.config.js` file with:
+Create a `jest.config.js` file with:
 
 ```javascript
 const jestConfig = require('@helpscout/zero/jest')
 
 module.exports = Object.assign(jestConfig, {
   // your overrides here
-
-  // for test written in Typescript, add:
-  transform: {
-    '\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
-  },
 })
 ```
+
+### Prettier
+
+Create a `.prettierrc.js` file with:
+
+```
+module.exports = require("@helpscout/zero/prettier");
+```
+
+## Thanks
+
+Thanks to [kcd-scripts](https://github.com/kentcdodds/kcd-scripts) and [create-react-app](https://github.com/facebook/create-react-app) for the inspiration and code!
