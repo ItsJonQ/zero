@@ -28,7 +28,9 @@ exports.buildBabel = async () => {
     const outDir = useSpecifiedOutDir ? [] : ['--out-dir', 'dist']
 
     // Add TypeScript support!
-    const extensions = ['--extensions', '.ts,.tsx']
+    const extensions = args.includes('--extensions')
+      ? []
+      : ['--extensions', '.js,.jsx,.ts,.tsx']
 
     const result = spawn.sync(
       resolveBin('@babel/cli', { executable: 'babel' }),
