@@ -1,3 +1,6 @@
+const args = process.argv.slice(2)
+const buildArgs = ['--no-clean', '--typescript', '--ts', '--tsc']
+
 exports.compileTypeScript = async () => {
   const { tsConfigSrc, hasTsConfig } = require('../../utils')
 
@@ -8,12 +11,19 @@ exports.compileTypeScript = async () => {
     process.exit(1)
   }
 
+  const tsArgs = args.filter(a => !buildArgs.includes(a))
+
   try {
-    console.log('Compiling with TypeScript...')
+    if (args.includes('--emitDeclarationOnly')) {
+      console.log('Compiling TypeScript declarations only...')
+    } else {
+      console.log('Compiling with TypeScript...')
+    }
+
     console.log(`Loading ${tsConfig}...`)
 
     const { execTypeScript } = require('../../exec/typescript')
-    const result = await execTypeScript()
+    const result = await execTypeScript(tsArgs)
 
     if (result === 1) {
       console.log('Issue compiling with TypeScript :(')
