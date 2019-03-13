@@ -28,10 +28,11 @@ Commands:
   bundle [options]  Bundles project into single files with Rollup
   contributors      Generates markdown file with all contributors
   format [options]  Formats files with Prettier
-  link [options]    Lints files with ESLint
+  lint [options]    Lints files with ESLint
   new               Generate a new module
   pre-commit        Lints files before staging for commit
   prestart          Automatically install dependencies before starting
+  proxy             Serves a browser proxy connected with proxypack
   release           Publish to npm
   setup [options]   Sets up tooling in project
   test [options]    Run test with Jest

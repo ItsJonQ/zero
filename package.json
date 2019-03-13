@@ -63,6 +63,7 @@
     "@babel/preset-typescript": "7.1.0",
     "@babel/runtime": "7.3.1",
     "@helpscout/prestart": "0.0.9",
+    "@helpscout/proxypack": "0.0.6",
     "all-contributors-cli": "5.4.1",
     "arrify": "1.0.1",
     "babel-core": "7.0.0-bridge.0",

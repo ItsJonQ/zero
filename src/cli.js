@@ -59,7 +59,7 @@ program
   })
 
 program
-  .command('link')
+  .command('lint')
   .description('Lints files with ESLint')
   .option('--no-cache', 'Do not use cache for linting')
   .allowUnknownOption()
@@ -89,6 +89,14 @@ program
   .allowUnknownOption()
   .action(() => {
     spawnScript('prestart')
+  })
+
+program
+  .command('proxy')
+  .description('Serves a browser proxy connected with proxypack')
+  .allowUnknownOption()
+  .action(() => {
+    spawnScript('proxy')
   })
 
 program
@@ -169,7 +177,7 @@ function spawnScript(script) {
   const scriptPath = attemptResolve(relativeScriptPath)
 
   if (!scriptPath) {
-    logHelpMessage()
+    program.outputHelp()
     process.exit(0)
   }
 
