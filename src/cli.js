@@ -64,7 +64,7 @@ program
   .option('--no-cache', 'Do not use cache for linting')
   .allowUnknownOption()
   .action(() => {
-    spawnScript('format')
+    spawnScript('lint')
   })
 
 program
