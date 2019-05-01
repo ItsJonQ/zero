@@ -60,10 +60,10 @@ if (shouldHaveTotalCoverage) {
 }
 
 if (hasSrcSetupFile) {
-  jestConfig.setupTestFrameworkScriptFile = '<rootDir>/src/setupTests.js'
+  jestConfig.setupFilesAfterEnv = ['<rootDir>/src/setupTests.js']
 }
 if (hasScriptSetupFile) {
-  jestConfig.setupTestFrameworkScriptFile = '<rootDir>/scripts/setupTests.js'
+  jestConfig.setupFilesAfterEnv = ['<rootDir>/scripts/setupTests.js']
 }
 
 module.exports = jestConfig

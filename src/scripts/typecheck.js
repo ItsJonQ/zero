@@ -2,12 +2,13 @@ const { tsConfigSrc, hasTsConfig } = require('../utils')
 const { execTypeScript } = require('../exec/typescript')
 
 const tsConfig = tsConfigSrc()
-if (!hasTsConfig()) {
-  console.log(`Could not find ${tsConfig}`)
-  return
-}
 
 const check = async () => {
+  if (!hasTsConfig()) {
+    console.log(`Could not find ${tsConfig}`)
+    return
+  }
+
   console.log('Type checking with TypeScript...')
   console.log(`Loading ${tsConfig}...`)
   const result = await execTypeScript(['--noEmit'])
