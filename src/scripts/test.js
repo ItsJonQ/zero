@@ -1,6 +1,9 @@
 process.env.BABEL_ENV = 'test'
 process.env.NODE_ENV = 'test'
 
+// Force (Zero) babel to use @babel/plugin-transform-runtime
+process.env.BUILD_RUNTIME = true
+
 // From create-react-app
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
