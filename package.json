@@ -102,7 +102,7 @@
     "lodash.camelcase": "4.3.0",
     "lodash.has": "4.5.2",
     "lodash.omit": "4.5.0",
-    "lodash.template": "4.4.0",
+    "lodash.template": "4.5.0",
     "mkdirp": "0.5.1",
     "np": "5.1.1",
     "prettier": "1.18.2",
