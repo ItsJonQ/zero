@@ -1,4 +1,4 @@
-const { clean } = require('./clean')
+const { clean } = require('./build/clean')
 
 clean()
 
