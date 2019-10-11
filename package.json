@@ -1,6 +1,6 @@
 {
   "name": "@itsjonq/zero",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "public": true,
   "description": "A zero config scripts library",
   "main": "src/index.js",
