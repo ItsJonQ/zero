@@ -1,9 +1,7 @@
 # 📦 Zero
 
 [![Build Status](https://travis-ci.org/itsjonq/zero.svg?branch=master)](https://travis-ci.org/itsjonq/zero)
-[![npm version](https://badge.fury.io/js/%40itsjonq%2Fzero.svg)](https://badge.fury.io/js/%40itsjonq%2Fzero)
-![node](https://img.shields.io/badge/node-8.11.3-blue.svg)
-![npm](https://img.shields.io/badge/npm-6.4.1-blue.svg)
+![npm (scoped)](https://img.shields.io/npm/v/@itsjonq/zero?color=%2366b73c)
 
 > A zero config scripts library
 
