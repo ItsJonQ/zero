@@ -99,7 +99,7 @@ exports.generateTemplateFiles = (dest, rawProps) => {
   // Create the src/.prettierrc.js file
   fs.writeFileSync(
     srcPrettierDest,
-    "module.exports = require('@helpscout/zero/prettier')"
+    "module.exports = require('@itsjonq/zero/prettier')"
   )
   console.log(`Generated ${srcPrettierDest}`)
 }

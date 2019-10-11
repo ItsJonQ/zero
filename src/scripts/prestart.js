@@ -1,2 +1,2 @@
-const prestart = require('@helpscout/prestart')
+const prestart = require('@itsjonq/prestart')
 prestart.sync()

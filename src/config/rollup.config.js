@@ -1,5 +1,5 @@
 const path = require('path')
-const glob = require('fast-glob')
+const glob = require('glob')
 const camelcase = require('lodash.camelcase')
 const rollupBabel = require('rollup-plugin-babel')
 const commonjs = require('rollup-plugin-commonjs')
@@ -16,7 +16,6 @@ const {
   hasFile,
   hasPkgProp,
   parseEnv,
-  ifFile,
   fromRoot,
   uniq,
   writeExtraEntry,
@@ -47,12 +46,7 @@ const deps = Object.keys(pkg.dependencies || {})
 const peerDeps = Object.keys(pkg.peerDependencies || {})
 const defaultExternal = umd ? peerDeps : deps.concat(peerDeps)
 
-const input = glob.sync(
-  fromRoot(
-    process.env.BUILD_INPUT ||
-      ifFile(`src/${format}-entry.js`, `src/${format}-entry.js`, 'src/index.js')
-  )
-)
+const input = glob.sync(fromRoot(process.env.BUILD_INPUT || 'src/index.js'))
 const codeSplitting = input.length > 1
 
 if (
@@ -88,7 +82,7 @@ if (isPreact) {
 const externalPattern = new RegExp(`^(${external.join('|')})($|/)`)
 
 function externalPredicate(id) {
-  const isDep = externalPattern.test(id)
+  const isDep = external.length > 0 && externalPattern.test(id)
   if (umd) {
     // for UMD, we want to bundle all non-peer deps
     return isDep
@@ -147,12 +141,14 @@ const replacements = Object.entries(
 module.exports = {
   input: codeSplitting ? input : input[0],
   output,
-  experimentalCodeSplitting: codeSplitting,
   external: externalPredicate,
   plugins: [
     isNode ? nodeBuiltIns() : null,
     isNode ? nodeGlobals() : null,
-    nodeResolve({ preferBuiltins: isNode, jsnext: true, main: true }),
+    nodeResolve({
+      preferBuiltins: isNode,
+      mainFields: ['module', 'main', 'jsnext', 'browser'],
+    }),
     commonjs({ include: 'node_modules/**' }),
     json(),
     rollupBabel({

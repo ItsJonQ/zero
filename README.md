@@ -1,11 +1,11 @@
 # 📦 Zero
 
-[![Build Status](https://travis-ci.org/helpscout/zero.svg?branch=master)](https://travis-ci.org/helpscout/zero)
-[![npm version](https://badge.fury.io/js/%40helpscout%2Fzero.svg)](https://badge.fury.io/js/%40helpscout%2Fzero)
+[![Build Status](https://travis-ci.org/itsjonq/zero.svg?branch=master)](https://travis-ci.org/itsjonq/zero)
+[![npm version](https://badge.fury.io/js/%40itsjonq%2Fzero.svg)](https://badge.fury.io/js/%40itsjonq%2Fzero)
 ![node](https://img.shields.io/badge/node-8.11.3-blue.svg)
 ![npm](https://img.shields.io/badge/npm-6.4.1-blue.svg)
 
-> Help Scout's zero config scripts
+> A zero config scripts library
 
 Zero is a ["zero config"](https://www.google.com/search?ei=eGJ7XPqGG5K_jgS2wYKoCA&q=javascript+zero+config&oq=javascript+zero+config&gs_l=psy-ab.3..0i22i30l2.2204.6555..6634...4.0..0.88.1939.29......0....1..gws-wiz.......0i71j0i131j0j0i67.eDv8lllu1MY) tool designed to make it easy to create, develop, test, build, and publish libraries.
 
@@ -32,7 +32,6 @@ Commands:
   new               Generate a new module
   pre-commit        Lints files before staging for commit
   prestart          Automatically install dependencies before starting
-  proxy             Serves a browser proxy connected with proxypack
   release           Publish to npm
   setup [options]   Sets up tooling in project
   test [options]    Run test with Jest
@@ -62,13 +61,13 @@ Commands:
 Add Zero to your project with this command:
 
 ```
-npm install --save-dev @helpscout/zero
+npm install --save-dev @itsjonq/zero
 ```
 
 Or globally with:
 
 ```
-npm install -g @helpscout/zero
+npm install -g @itsjonq/zero
 ```
 
 ## Usage
@@ -99,7 +98,7 @@ zero
 Alternatively, you can run it with [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
 
 ```
-npx @helpscout/zero
+npx @itsjonq/zero
 ```
 
 ## Extending
@@ -113,7 +112,7 @@ If you need to personalize Babel, ESLint, or Jest, Zero's got you covered. Add y
 Create a `babel` or `.babelrc` file with:
 
 ```
-{"presets": ["@helpscout/zero/babel"]}
+{"presets": ["@itsjonq/zero/babel"]}
 ```
 
 #### `babel-core@7`
@@ -137,7 +136,7 @@ Zero no longer comes with `babel-plugin-react-app`. The reason is because this m
 Create an `.eslintrc` file with:
 
 ```
-{"extends": "./node_modules/@helpscout/zero/eslint.js"}
+{"extends": "./node_modules/@itsjonq/zero/eslint.js"}
 ```
 
 > Note: for now, you'll have to include an `.eslintignore` in your project until
@@ -148,7 +147,7 @@ Create an `.eslintrc` file with:
 Create a `jest.config.js` file with:
 
 ```javascript
-const jestConfig = require('@helpscout/zero/jest')
+const jestConfig = require('@itsjonq/zero/jest')
 
 module.exports = Object.assign(jestConfig, {
   // your overrides here
@@ -160,7 +159,7 @@ module.exports = Object.assign(jestConfig, {
 Create a `.prettierrc.js` file with:
 
 ```
-module.exports = require("@helpscout/zero/prettier");
+module.exports = require("@itsjonq/zero/prettier");
 ```
 
 ## Thanks

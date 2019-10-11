@@ -92,14 +92,6 @@ program
   })
 
 program
-  .command('proxy')
-  .description('Serves a browser proxy connected with proxypack')
-  .allowUnknownOption()
-  .action(() => {
-    spawnScript('proxy')
-  })
-
-program
   .command('release')
   .description('Publish to npm')
   .allowUnknownOption()

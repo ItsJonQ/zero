@@ -9,7 +9,7 @@ const setupBabel = () => {
     process.exit(0)
   }
 
-  const content = '{ "presets": ["@helpscout/zero/babel"] }'
+  const content = '{ "presets": ["@itsjonq/zero/babel"] }'
 
   console.log(`Generating ${babelConfig}...`)
   writeFileToRoot('./.babelrc', content)

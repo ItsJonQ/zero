@@ -150,6 +150,7 @@ module.exports = () => ({
       : require.resolve('@babel/plugin-transform-modules-commonjs'),
     require.resolve('babel-plugin-inline-svg'),
     require.resolve('babel-plugin-emotion'),
+    require.resolve('babel-plugin-styled-components'),
   ].filter(Boolean),
   // From create-react-app
   overrides: [

@@ -22,7 +22,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@helpscout/zero": "<%= zeroVersion %>"
+    "@itsjonq/zero": "<%= zeroVersion %>"
   },
   "publishConfig": {
     "access": "public"

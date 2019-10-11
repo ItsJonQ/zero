@@ -1,1 +1,1 @@
-{ "extends": "./node_modules/@helpscout/zero/eslint.js" }
+{ "extends": "./node_modules/@itsjonq/zero/eslint.js" }

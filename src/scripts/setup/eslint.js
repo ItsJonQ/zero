@@ -10,7 +10,7 @@ const setupESLint = () => {
     process.exit(0)
   }
 
-  const content = '{ "extends": "./node_modules/@helpscout/zero/eslint.js" }'
+  const content = '{ "extends": "./node_modules/@itsjonq/zero/eslint.js" }'
   const ignoreContent = 'node_modules\ncoverage\ndist'
 
   console.log(`Generating ${eslintConfig}...`)
