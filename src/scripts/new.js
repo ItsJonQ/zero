@@ -79,8 +79,10 @@ exports.getTemplateProps = rawProps => {
 exports.generateTemplateFiles = (dest, rawProps) => {
   const templateFiles = exports.getTemplateFiles()
   const props = exports.getTemplateProps(rawProps)
+
   const srcIndexDest = path.join(dest, 'src/index.js')
   const srcPrettierDest = path.join(dest, '.prettierrc.js')
+  const srcESLintRc = path.join(dest, '.eslinrc')
 
   templateFiles.forEach(file => {
     const fileContent = fs.readFileSync(file, 'utf8')
@@ -100,6 +102,11 @@ exports.generateTemplateFiles = (dest, rawProps) => {
   fs.writeFileSync(
     srcPrettierDest,
     "module.exports = require('@itsjonq/zero/prettier')"
+  )
+
+  fs.writeFileSync(
+    srcESLintRc,
+    '{ "extends": "./node_modules/@itsjonq/zero/eslint.js" }'
   )
   console.log(`Generated ${srcPrettierDest}`)
 }

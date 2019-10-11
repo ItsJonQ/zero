@@ -1,4 +1,4 @@
-const jestConfig = require('@helpscout/zero/jest')
+const jestConfig = require('@itsjonq/zero/jest')
 
 module.exports = Object.assign(jestConfig, {
   // your overrides here
