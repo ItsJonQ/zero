@@ -1,1 +1,1 @@
-module.exports = require('./src/config/babelrc')
+module.exports = require('./src/config/babelrc');

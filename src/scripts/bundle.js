@@ -1,5 +1,5 @@
-const { clean } = require('./build/clean')
+const { clean } = require('./build/clean');
 
-clean()
+clean();
 
-require('./build/rollup')
+require('./build/rollup');

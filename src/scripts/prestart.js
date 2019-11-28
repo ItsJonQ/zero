@@ -1,2 +1,2 @@
-const prestart = require('@itsjonq/prestart')
-prestart.sync()
+const prestart = require('@itsjonq/prestart');
+prestart.sync();

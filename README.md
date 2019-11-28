@@ -42,15 +42,15 @@ Commands:
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Installation](#installation)
-- [Usage](#usage)
-  - [CLI](#cli)
-- [Extending](#extending)
-  - [Babel](#babel)
-  - [ESlint](#eslint)
-  - [Jest](#jest)
-  - [Prettier](#prettier)
-- [Thanks](#thanks)
+-   [Installation](#installation)
+-   [Usage](#usage)
+    -   [CLI](#cli)
+-   [Extending](#extending)
+    -   [Babel](#babel)
+    -   [ESlint](#eslint)
+    -   [Jest](#jest)
+    -   [Prettier](#prettier)
+-   [Thanks](#thanks)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -145,11 +145,11 @@ Create an `.eslintrc` file with:
 Create a `jest.config.js` file with:
 
 ```javascript
-const jestConfig = require('@itsjonq/zero/jest')
+const jestConfig = require('@itsjonq/zero/jest');
 
 module.exports = Object.assign(jestConfig, {
-  // your overrides here
-})
+	// your overrides here
+});
 ```
 
 ### Prettier

@@ -1,1 +1,1 @@
-require('np/source/cli')
+require('np/source/cli');

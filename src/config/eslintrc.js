@@ -1,3 +1,8 @@
-const reactLint = require('eslint-config-react-app')
+const { ifAnyDep } = require('../utils');
 
-module.exports = Object.assign({}, reactLint)
+module.exports = {
+	extends: [
+		ifAnyDep('react', require.resolve('eslint-config-react-app')),
+	].filter(Boolean),
+	rules: {},
+};
