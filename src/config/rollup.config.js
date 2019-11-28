@@ -7,7 +7,6 @@ const nodeResolve = require('rollup-plugin-node-resolve');
 const json = require('rollup-plugin-json');
 const replace = require('rollup-plugin-replace');
 const { terser } = require('rollup-plugin-terser');
-const nodeBuiltIns = require('rollup-plugin-node-builtins');
 const nodeGlobals = require('rollup-plugin-node-globals');
 const { sizeSnapshot } = require('rollup-plugin-size-snapshot');
 const omit = require('lodash.omit');
@@ -145,7 +144,6 @@ module.exports = {
 	output,
 	external: externalPredicate,
 	plugins: [
-		isNode ? nodeBuiltIns() : null,
 		isNode ? nodeGlobals() : null,
 		nodeResolve({
 			preferBuiltins: isNode,
