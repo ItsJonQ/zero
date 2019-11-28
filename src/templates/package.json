@@ -13,7 +13,7 @@
     "format": "zero format",
     "validate": "zero validate",
     "release": "zero release",
-    "version": "zero build",
+    "version": "npm run build",
     "precommit": "zero pre-commit"
   },
   "files": [
