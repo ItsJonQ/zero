@@ -1,17 +1,17 @@
 language: node_js
 node_js:
-  - 'lts/*'
+    - 'lts/*'
 
 cache:
-  directories:
-    - node_modules
+    directories:
+        - node_modules
 
 install:
-  - npm install
+    - npm install
 
 script:
-  - npm run validate
+    - npm run test
 
 branches:
-  only:
-    - master
+    only:
+        - master
