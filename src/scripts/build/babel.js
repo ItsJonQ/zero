@@ -2,7 +2,8 @@ const path = require('path');
 const spawn = require('cross-spawn');
 const { hasPkgProp, resolveBin, hasFile } = require('../../utils');
 
-const args = process.argv.slice(2);
+const filteredArgs = ['--no-clean'];
+const args = process.argv.slice(2).filter(a => !filteredArgs.includes(a));
 const here = p => path.join(__dirname, p);
 
 exports.buildBabel = async () => {

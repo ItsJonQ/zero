@@ -20,11 +20,6 @@
     "validate": "node src validate",
     "release": "node src release"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "node src pre-commit"
-    }
-  },
   "files": [
     "src",
     "babel.js",
