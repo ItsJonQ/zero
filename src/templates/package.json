@@ -13,7 +13,7 @@
     "build": "npm run build:cjs && npm run build:es -- --no-clean",
     "lint": "zero lint",
     "dev": "zero test",
-    "test": "zero test --no-watch",
+    "test": "zero test --coverage",
     "test:coverage": "zero test --coverage",
     "format": "zero format",
     "validate": "zero validate",
@@ -26,6 +26,16 @@
     "README.md",
     "LICENSE"
   ],
+  "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsjonq/zero.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itsjonq/zero/issues"
+  },
+  "homepage": "https://github.com/itsjonq/zero#readme",
+  "keywords": [],
   "license": "MIT",
   "devDependencies": {
     "@itsjonq/zero": "<%= zeroVersion %>"
