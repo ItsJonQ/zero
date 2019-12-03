@@ -8,7 +8,7 @@ const json = require('rollup-plugin-json');
 const replace = require('rollup-plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const nodeGlobals = require('rollup-plugin-node-globals');
-const { sizeSnapshot } = require('rollup-plugin-size-snapshot');
+const filesize = require('rollup-plugin-filesize');
 const omit = require('lodash.omit');
 const {
 	pkg,
@@ -28,7 +28,7 @@ const format = process.env.BUILD_FORMAT;
 const isPreact = parseEnv('BUILD_PREACT', false);
 const isNode = parseEnv('BUILD_NODE', false);
 const name = process.env.BUILD_NAME || capitalize(camelcase(pkg.name));
-const useSizeSnapshot = parseEnv('BUILD_SIZE_SNAPSHOT', false);
+const showFileSize = parseEnv('BUILD_SIZE_SNAPSHOT', true);
 
 const esm = format === 'esm';
 const umd = format === 'umd';
@@ -157,7 +157,7 @@ module.exports = {
 			runtimeHelpers: useBuiltinConfig,
 		}),
 		replace(replacements),
-		useSizeSnapshot ? sizeSnapshot({ printInfo: false }) : null,
+		showFileSize ? filesize() : null,
 		minify ? terser() : null,
 		codeSplitting &&
 			((writes = 0) => ({
