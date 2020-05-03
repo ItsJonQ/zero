@@ -21,12 +21,12 @@ const { package: pkg, path: pkgPath } = readPkgUp.sync({
 });
 const appDirectory = path.dirname(pkgPath);
 
-function resolveKcdScripts() {
-	if (pkg.name === 'kcd-scripts') {
+function resolveZeroScripts() {
+	if (pkg.name === '@itsjonq/zero') {
 		return require.resolve('./').replace(process.cwd(), '.');
 	}
 
-	return resolveBin('kcd-scripts');
+	return resolveBin('zero');
 } // eslint-disable-next-line complexity
 
 function resolveBin(
@@ -72,14 +72,14 @@ const fromRoot = (...p) => path.join(appDirectory, ...p);
 const hasFile = (...p) => fs.existsSync(fromRoot(...p));
 
 const ifFile = (files, t, f) =>
-	arrify(files).some(file => hasFile(file)) ? t : f;
+	arrify(files).some((file) => hasFile(file)) ? t : f;
 
-const hasPkgProp = props => arrify(props).some(prop => has(pkg, prop));
+const hasPkgProp = (props) => arrify(props).some((prop) => has(pkg, prop));
 
-const hasPkgSubProp = pkgProp => props =>
-	hasPkgProp(arrify(props).map(p => `${pkgProp}.${p}`));
+const hasPkgSubProp = (pkgProp) => (props) =>
+	hasPkgProp(arrify(props).map((p) => `${pkgProp}.${p}`));
 
-const ifPkgSubProp = pkgProp => (props, t, f) =>
+const ifPkgSubProp = (pkgProp) => (props, t, f) =>
 	hasPkgSubProp(pkgProp)(props) ? t : f;
 
 const hasScript = hasPkgSubProp('scripts');
@@ -87,7 +87,8 @@ const hasPeerDep = hasPkgSubProp('peerDependencies');
 const hasDep = hasPkgSubProp('dependencies');
 const hasDevDep = hasPkgSubProp('devDependencies');
 
-const hasAnyDep = args => [hasDep, hasDevDep, hasPeerDep].some(fn => fn(args));
+const hasAnyDep = (args) =>
+	[hasDep, hasDevDep, hasPeerDep].some((fn) => fn(args));
 
 const ifPeerDep = ifPkgSubProp('peerDependencies');
 const ifDep = ifPkgSubProp('dependencies');
@@ -145,7 +146,7 @@ function getConcurrentlyArgs(scripts, { killOthers = true } = {}) {
 		Object.keys(scripts).join(','),
 		'--prefix-colors',
 		prefixColors,
-		...Object.values(scripts).map(s => JSON.stringify(s)), // stringify escapes quotes ✨
+		...Object.values(scripts).map((s) => JSON.stringify(s)), // stringify escapes quotes ✨
 	].filter(Boolean);
 }
 
@@ -202,8 +203,8 @@ function hasLocalConfig(moduleName, searchOptions = {}) {
 /**
  * Custom utils
  */
-const here = p => path.join(__dirname, p);
-const there = p => path.resolve(process.cwd(), p);
+const here = (p) => path.join(__dirname, p);
+const there = (p) => path.resolve(process.cwd(), p);
 
 const tsConfigSrc = () => there('./tsconfig.json');
 const hasTsConfig = () => fs.existsSync(tsConfigSrc());
@@ -234,7 +235,7 @@ module.exports = {
 	parseEnv,
 	pkg,
 	resolveBin,
-	resolveKcdScripts,
+	resolveZeroScripts,
 	uniq,
 	there,
 	tsConfigSrc,
