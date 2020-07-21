@@ -86,17 +86,17 @@ const hasScript = hasPkgSubProp('scripts');
 const hasPeerDep = hasPkgSubProp('peerDependencies');
 const hasDep = hasPkgSubProp('dependencies');
 const hasDevDep = hasPkgSubProp('devDependencies');
-
 const hasAnyDep = (args) =>
 	[hasDep, hasDevDep, hasPeerDep].some((fn) => fn(args));
 
 const ifPeerDep = ifPkgSubProp('peerDependencies');
 const ifDep = ifPkgSubProp('dependencies');
 const ifDevDep = ifPkgSubProp('devDependencies');
-
 const ifAnyDep = (deps, t, f) => (hasAnyDep(arrify(deps)) ? t : f);
-
 const ifScript = ifPkgSubProp('scripts');
+
+const hasTypescript = hasAnyDep('typescript') && hasFile('tsconfig.json');
+const ifTypescript = (t, f) => (hasTypescript ? t : f);
 
 function parseEnv(name, def) {
 	if (envIsSet(name)) {
@@ -218,11 +218,13 @@ module.exports = {
 	envIsSet,
 	fromRoot,
 	getConcurrentlyArgs,
+	hasDep,
 	hasFile,
 	hasLocalConfig,
 	hasPkgProp,
 	hasScript,
 	hasTsConfig,
+	hasTypescript,
 	here,
 	ifAnyDep,
 	ifDep,
@@ -232,6 +234,7 @@ module.exports = {
 	ifScript,
 	isOptedIn,
 	isOptedOut,
+	ifTypescript,
 	parseEnv,
 	pkg,
 	resolveBin,

@@ -1,34 +1,39 @@
 const path = require('path');
+const { babel: rollupBabel } = require('@rollup/plugin-babel');
+const commonjs = require('@rollup/plugin-commonjs');
+const json = require('@rollup/plugin-json');
+const {
+	DEFAULTS: nodeResolveDefaults,
+	nodeResolve,
+} = require('@rollup/plugin-node-resolve');
+const replace = require('@rollup/plugin-replace');
 const glob = require('glob');
 const camelcase = require('lodash.camelcase');
-const rollupBabel = require('rollup-plugin-babel');
-const commonjs = require('rollup-plugin-commonjs');
-const nodeResolve = require('rollup-plugin-node-resolve');
-const json = require('rollup-plugin-json');
-const replace = require('rollup-plugin-replace');
 const { terser } = require('rollup-plugin-terser');
+const nodeBuiltIns = require('rollup-plugin-node-builtins');
 const nodeGlobals = require('rollup-plugin-node-globals');
-const filesize = require('rollup-plugin-filesize');
+const { sizeSnapshot } = require('rollup-plugin-size-snapshot');
 const omit = require('lodash.omit');
 const {
 	pkg,
 	hasFile,
 	hasPkgProp,
+	hasTypescript,
 	parseEnv,
 	fromRoot,
 	uniq,
 	writeExtraEntry,
 } = require('../utils');
 
-const here = p => path.join(__dirname, p);
-const capitalize = s => s[0].toUpperCase() + s.slice(1);
+const here = (p) => path.join(__dirname, p);
+const capitalize = (s) => s[0].toUpperCase() + s.slice(1);
 
 const minify = parseEnv('BUILD_MINIFY', false);
 const format = process.env.BUILD_FORMAT;
 const isPreact = parseEnv('BUILD_PREACT', false);
 const isNode = parseEnv('BUILD_NODE', false);
 const name = process.env.BUILD_NAME || capitalize(camelcase(pkg.name));
-const showFileSize = parseEnv('BUILD_SIZE_SNAPSHOT', true);
+const useSizeSnapshot = parseEnv('BUILD_SIZE_SNAPSHOT', false);
 
 const esm = format === 'esm';
 const umd = format === 'umd';
@@ -45,12 +50,17 @@ const deps = Object.keys(pkg.dependencies || {});
 const peerDeps = Object.keys(pkg.peerDependencies || {});
 const defaultExternal = umd ? peerDeps : deps.concat(peerDeps);
 
-const input = glob.sync(fromRoot(process.env.BUILD_INPUT || 'src/index.js'));
+const input = glob.sync(
+	fromRoot(
+		process.env.BUILD_INPUT ||
+			(hasTypescript ? 'src/index.{js,ts,tsx}' : 'src/index.js'),
+	),
+);
 const codeSplitting = input.length > 1;
 
 if (
 	codeSplitting &&
-	uniq(input.map(single => path.basename(single))).length !== input.length
+	uniq(input.map((single) => path.basename(single))).length !== input.length
 ) {
 	throw new Error(
 		'Filenames of code-splitted entries should be unique to get deterministic output filenames.' +
@@ -139,6 +149,10 @@ const replacements = Object.entries(
 	return acc;
 }, {});
 
+const extensions = hasTypescript
+	? [...nodeResolveDefaults.extensions, '.ts', '.tsx']
+	: nodeResolveDefaults.extensions;
+
 module.exports = {
 	input: codeSplitting ? input : input[0],
 	output,
@@ -154,10 +168,11 @@ module.exports = {
 		rollupBabel({
 			presets: babelPresets,
 			babelrc: !useBuiltinConfig,
-			runtimeHelpers: useBuiltinConfig,
+			babelHelpers: 'bundled',
+			extensions,
 		}),
 		replace(replacements),
-		showFileSize ? filesize() : null,
+		useSizeSnapshot ? sizeSnapshot({ printInfo: false }) : null,
 		minify ? terser() : null,
 		codeSplitting &&
 			((writes = 0) => ({
@@ -167,8 +182,8 @@ module.exports = {
 					}
 
 					input
-						.filter(single => single.indexOf('index.js') === -1)
-						.forEach(single => {
+						.filter((single) => single.indexOf('index.js') === -1)
+						.forEach((single) => {
 							const chunk = path.basename(single);
 
 							writeExtraEntry(chunk.replace(/\..+$/, ''), {
