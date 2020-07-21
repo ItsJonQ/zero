@@ -12,13 +12,13 @@ const hasSrcSetupFile = fs.existsSync(there('./src/setupTests.js'));
 const hasScriptSetupFile = fs.existsSync(there('./scripts/setupTests.js'));
 
 const ignores = [
-	'/node_modules/',
-	'/__fixtures__/',
-	'/fixtures/',
-	'/__tests__/helpers/',
-	'/__tests__/utils/',
 	'__mocks__',
 	'__stories__',
+	'/__fixtures__/',
+	'/__tests__/helpers/',
+	'/__tests__/utils/',
+	'/fixtures/',
+	'/node_modules/',
 ];
 
 // The follow jestConfig is a combination of kcd-scripts and create-react-app.
@@ -30,12 +30,18 @@ const jestConfig = {
 	testURL: 'http://localhost',
 	moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
 	// From create-react-app
-	collectCoverageFrom: ['src/**/*.+(js|jsx|ts|tsx)', '!src/**/*.d.ts'],
+	collectCoverageFrom: [
+		'src/**/*.+(js|jsx|ts|tsx)',
+		'!src/**/*.d.ts',
+		'packages/**/*.+(js|jsx|ts|tsx)',
+		'!packages/**/*.d.ts',
+	],
 	// From create-react-app
 	setupFiles: [require.resolve('react-app-polyfill/jsdom')],
 	testMatch: [
 		'**/__tests__/**/*.+(js|jsx|ts|tsx)',
 		'<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}',
+		'<rootDir>/packages/**/?(*.)(spec|test).{js,jsx,ts,tsx}',
 	],
 	testPathIgnorePatterns: [...ignores],
 	coveragePathIgnorePatterns: [...ignores, 'src/(umd|cjs|esm)-entry.js$'],
