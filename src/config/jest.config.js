@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { ifAnyDep, hasFile, hasPkgProp, fromRoot, there } = require('../utils');
 
-const here = p => path.join(__dirname, p);
+const here = (p) => path.join(__dirname, p);
 
 const useBuiltInBabelConfig = !hasFile('.babelrc') && !hasPkgProp('babel');
 // Disabling 100% test coverage defaults.
@@ -13,9 +13,12 @@ const hasScriptSetupFile = fs.existsSync(there('./scripts/setupTests.js'));
 
 const ignores = [
 	'/node_modules/',
+	'/__fixtures__/',
 	'/fixtures/',
 	'/__tests__/helpers/',
+	'/__tests__/utils/',
 	'__mocks__',
+	'__stories__',
 ];
 
 // The follow jestConfig is a combination of kcd-scripts and create-react-app.
