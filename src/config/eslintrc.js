@@ -21,6 +21,11 @@ module.exports = {
 		'sort-keys-fix',
 		'sort-destructure-keys',
 	],
+	env: {
+		browser: true,
+		node: true,
+		jasmine: true,
+	},
 	globals: {
 		console: true,
 		global: true,
