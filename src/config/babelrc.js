@@ -155,6 +155,8 @@ module.exports = () => ({
 			: require.resolve('@babel/plugin-transform-modules-commonjs'),
 		require.resolve('babel-plugin-inline-svg'),
 		require.resolve('babel-plugin-emotion'),
+		// Custom
+		require.resolve('@babel/plugin-proposal-optional-chaining'),
 	].filter(Boolean),
 	// From create-react-app
 	overrides: [
