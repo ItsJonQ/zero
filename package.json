@@ -78,7 +78,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "browserslist": "4.13.0",
+    "browserslist": "4.16.5",
     "commander": "2.19.0",
     "concurrently": "5.2.0",
     "cross-env": "^6.0.3",
